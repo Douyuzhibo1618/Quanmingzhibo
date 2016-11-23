@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         manager=getSupportFragmentManager();
         ((RadioButton)rg.getChildAt(0)).setChecked(true);
         manager.beginTransaction().replace(R.id.ll,new MainFragment()).commit();
+
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -42,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        int position = getIntent().getIntExtra("position",0);
+        if(position==1){
+            ((RadioButton)rg.getChildAt(1)).setChecked(true);
+            manager.beginTransaction().replace(R.id.ll,new LanmuFragment()).commit();
+        }
 
     }
 }
