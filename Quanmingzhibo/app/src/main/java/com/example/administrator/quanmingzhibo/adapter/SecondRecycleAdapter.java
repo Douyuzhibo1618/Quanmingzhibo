@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.administrator.quanmingzhibo.R;
+import com.example.administrator.quanmingzhibo.ThirdActivity;
 import com.example.administrator.quanmingzhibo.bean.SecondBean;
 import com.example.administrator.quanmingzhibo.widget.CircleImageView;
 import com.squareup.picasso.Picasso;
@@ -49,7 +50,7 @@ public class SecondRecycleAdapter extends RecyclerView.Adapter<SecondRecycleAdap
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(context, ThirdActivity.class);
                 intent.putExtra("uid",uid);
                 context.startActivity(intent);
             }
