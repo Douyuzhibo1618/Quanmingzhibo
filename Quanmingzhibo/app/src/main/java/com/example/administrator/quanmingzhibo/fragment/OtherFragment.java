@@ -33,12 +33,9 @@ public class OtherFragment extends Fragment {
     private OtherAdapter adapter;
     private String name;
 
-
-
     public OtherFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
