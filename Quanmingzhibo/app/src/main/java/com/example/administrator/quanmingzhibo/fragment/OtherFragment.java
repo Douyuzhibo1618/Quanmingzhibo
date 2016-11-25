@@ -48,6 +48,7 @@ public class OtherFragment extends Fragment {
         listData = new ArrayList<>();
          name =  getArguments().getString("name");
         initData();
+
         adapter = new OtherAdapter(getActivity(),listData);
         mRecyclerView.setAdapter(adapter);
 
