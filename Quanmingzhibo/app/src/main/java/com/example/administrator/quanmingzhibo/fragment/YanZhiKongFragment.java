@@ -1,19 +1,17 @@
 package com.example.administrator.quanmingzhibo.fragment;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.administrator.quanmingzhibo.R;
-import com.example.administrator.quanmingzhibo.adapter.OtherAdapter;
-import com.example.administrator.quanmingzhibo.bean.OtherBean;
+import com.example.administrator.quanmingzhibo.adapter.YanZhiKongAdapter;
+import com.example.administrator.quanmingzhibo.bean.YanZhiKong;
 import com.example.administrator.quanmingzhibo.uri.Url;
-import com.example.administrator.quanmingzhibo.widget.PullToRefreshRecyclerView;
 import com.google.gson.Gson;
+import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -22,20 +20,17 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class OtherFragment extends Fragment {
 
-    private PullToRefreshRecyclerView pullToRefreshRecyclerView;
-    private RecyclerView mRecyclerView;
-    private List<OtherBean.DataBean>  listData;
-    private OtherAdapter adapter;
-    private String name;
+public class YanZhiKongFragment extends Fragment {
 
 
+    private PullToRefreshGridView gv;
 
-    public OtherFragment() {
+    private List<YanZhiKong.DataBean> listData;
+
+    private YanZhiKongAdapter adapter;
+
+    public YanZhiKongFragment() {
         // Required empty public constructor
     }
 
@@ -44,26 +39,22 @@ public class OtherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_other, container, false);
-        pullToRefreshRecyclerView= (PullToRefreshRecyclerView)view.findViewById(R.id.pullToRefreshRecyclerView);
-      //得到刷新组件
-        mRecyclerView = pullToRefreshRecyclerView.getRefreshableView();
-        listData = new ArrayList<>();
-         name =  getArguments().getString("name");
+        View view = inflater.inflate(R.layout.fragment_yan_zhi_kong, container, false);
+        gv = (PullToRefreshGridView)view.findViewById(R.id.gridview);
+        listData = new ArrayList<YanZhiKong.DataBean>();
         initData();
-        adapter = new OtherAdapter(getActivity(),listData);
-        mRecyclerView.setAdapter(adapter);
-
+        adapter = new YanZhiKongAdapter(getActivity(),listData);
+        gv.setAdapter(adapter);
         return  view;
     }
 
     private void initData() {
-        RequestParams params = new RequestParams(Url.needurl(name));
+        RequestParams params = new RequestParams(Url.Yanzhi);
         x.http().get(params, new Callback.CommonCallback<String>() {
 
             @Override
             public void onSuccess(String result) {
-                listData.addAll(new Gson().fromJson(result,OtherBean.class).getData());
+                listData.addAll(new Gson().fromJson(result,YanZhiKong.class).getData());
                 adapter.setData(listData);
             }
 

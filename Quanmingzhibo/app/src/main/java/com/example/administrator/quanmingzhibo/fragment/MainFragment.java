@@ -28,6 +28,7 @@ public class MainFragment extends Fragment {
     private ViewPager viewpager;
     private List<Fragment> fragments;
     private List<String> title;
+    private List<String> realtitle;
 
 
     public MainFragment() {
@@ -47,6 +48,7 @@ public class MainFragment extends Fragment {
         //
         fragments = new ArrayList<Fragment>();
         title = new ArrayList<String>();
+        realtitle = new ArrayList<>();
         //初始化数据
         initData();
         viewpager.setAdapter(new MainViewPagerAdapter(getChildFragmentManager(),fragments,title));
@@ -67,18 +69,29 @@ public class MainFragment extends Fragment {
     private void initData() {
         title.add("推荐");
         title.add("全部");
-        title.add("颜值控");
         title.add("英雄联盟");
         title.add("全民星秀");
         title.add("炉石传说");
         title.add("守望先锋");
         title.add("二次元区");
+
+        realtitle.add("all");
+        realtitle.add("lol");
+        realtitle.add("beauty");
+        realtitle.add("heartstone");
+        realtitle.add("overwatch");
+        realtitle.add("erciyuan");
+
         fragments.add(new TuiJianFragment());
-        for (int i = 0; i < 7; i++) {
-            fragments.add(new OtherFragment());
+        fragments.add(new YanZhiKongFragment());
+        for (int i = 0; i < 6; i++) {
+            OtherFragment otherFragment = new OtherFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("name",realtitle.get(i));
+            otherFragment.setArguments(bundle);
+            fragments.add(otherFragment);
+
         }
-
-
     }
 
 }

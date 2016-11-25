@@ -2,17 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.quanmingzhibo.fragment.OtherFragment">
+    tools:context="com.example.administrator.quanmingzhibo.fragment.YanZhiKongFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.example.administrator.quanmingzhibo.widget.PullToRefreshRecyclerView
+    <com.handmark.pulltorefresh.library.PullToRefreshGridView.PullToRefreshGridView
+       android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/pullToRefreshRecyclerView"
-
-
-       />
-
+        android:numColumns="2"
+        android:verticalSpacing="3dp"
+        android:horizontalSpacing="5dp"/>
 
 
 </FrameLayout>

@@ -22,10 +22,10 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    compile project(':pullToRefresh_Library')
+    compile 'com.android.support:design:24.0.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
-    compile 'com.android.support:design:24.0.0'
-    compile project(':pullToRefresh_Library')
     compile 'com.android.support:design:24.0.0'
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'org.xutils:xutils:3.3.38'
