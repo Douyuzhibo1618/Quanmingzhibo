@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#E0EEEE"
+    tools:context="com.example.administrator.quanmingzhibo.PinDaoManagerActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:popupTheme="@style/Theme.ToolBar.Base">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:text="频道管理"/>
+            <TextView
+                android:id="@+id/manager"
+                android:background="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                android:clickable="true"
+                android:text="管理"/>
+
+        </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       >
+
+       <GridView
+           android:layout_marginTop="20dp"
+           android:id="@+id/changyongpindao"
+          android:layout_width="match_parent"
+           android:layout_height="180dp"
+           android:numColumns="3"
+           android:verticalSpacing="10dp"
+           android:horizontalSpacing="15sp"/>
+
+       <GridView
+           android:layout_marginTop="20dp"
+           android:id="@+id/qitapindao"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:numColumns="3"
+           android:verticalSpacing="10dp"
+           android:horizontalSpacing="15sp"/>
+
+       </LinearLayout>
+</LinearLayout>

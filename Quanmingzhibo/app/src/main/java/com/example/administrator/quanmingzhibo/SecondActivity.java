@@ -31,6 +31,7 @@ public class SecondActivity extends AppCompatActivity {
         toolbar.setTitle(name);
         setSupportActionBar(toolbar);
 
+
         //获得地址
         String path = Url.getLanmuPath(slug);
         //数据

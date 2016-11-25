@@ -16,6 +16,10 @@ public class Url {
 
     //栏目==========================================================
     //栏目
+    public static String needurl(String name){
+        return "http://www.quanmin.tv/json/categories/"+name+"/list.json?11211841&v=2.2.4&os=1&ver=4";
+    }
+
     public static String Lanmu = "http://www.quanmin.tv/json/categories/list.json?11211803&v=2.2.4&os=1&ver=4";
 
     //获得地址
