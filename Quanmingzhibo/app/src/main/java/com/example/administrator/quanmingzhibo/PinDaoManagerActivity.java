@@ -38,6 +38,7 @@ public class PinDaoManagerActivity extends AppCompatActivity {
 
         changyonglist = new ArrayList<String>();
         qitalist = new ArrayList<String>();
+        initData();
 
 
         changyongAdapter = new ChangYongAdapter(PinDaoManagerActivity.this,changyonglist);
@@ -45,6 +46,34 @@ public class PinDaoManagerActivity extends AppCompatActivity {
 
         qitaAdapter = new QiTaAdapter(qitalist,PinDaoManagerActivity.this);
         qita.setAdapter(qitaAdapter);
+
+
+    }
+
+    private void initData() {
+        changyonglist.add("颜值控");
+        changyonglist.add("英雄联盟");
+        changyonglist.add("全民星秀");
+        changyonglist.add("炉石传说");
+        changyonglist.add("守望先锋");
+        changyonglist.add("二次元区");
+        qitalist.add("全民户外");
+        qitalist.add("手游专区");
+        qitalist.add("单击主机");
+        qitalist.add("Dota2");
+        qitalist.add("暴雪经典");
+        qitalist.add("DNF");
+        qitalist.add("网络游戏");
+        qitalist.add("玩着荣耀");
+        qitalist.add("魔兽争霸3");
+        qitalist.add("FIFA");
+        qitalist.add("NBA2K");
+        qitalist.add("QQ飞车");
+        qitalist.add("穿越火线");
+        qitalist.add("球球大作战");
+
+
+
 
 
     }

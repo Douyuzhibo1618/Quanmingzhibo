@@ -27,4 +27,7 @@ dependencies {
     compile 'com.android.support:design:24.0.0'
     compile project(':pullToRefresh_Library')
     compile 'com.android.support:design:24.0.0'
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile 'org.xutils:xutils:3.3.38'
+    compile 'com.google.code.gson:gson:2.8.0'
 }
