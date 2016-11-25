@@ -5,15 +5,15 @@
     android:layout_height="match_parent"
     android:background="#00f"
     tools:context="com.example.administrator.quanmingzhibo.ThirdActivity">
-    <!--<cn.com.video.venvy.param.JjVideoView-->
-    <!--android:id="@+id/jjvideoView"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="300dp">-->
+    <cn.com.video.venvy.param.JjVideoView
+    android:id="@+id/jjvideoView"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
 
-    <!--</cn.com.video.venvy.param.JjVideoView>-->
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp" />
+    </cn.com.video.venvy.param.JjVideoView>
+    <!--<VideoView-->
+        <!--android:id="@+id/videoView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="300dp" />-->
 
 </RelativeLayout>
