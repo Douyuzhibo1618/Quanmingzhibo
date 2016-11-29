@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.quanmingzhibo.DetailsActivity">
+
+    <io.vov.vitamio.widget.VideoView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:id="@+id/details_player"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+        <com.example.administrator.quanmingzhibo.widget.CircleImageView
+            android:id="@+id/details_touxiang"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+        <TextView
+            android:id="@+id/details_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/details_touxiang"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="3dp"
+            android:text="作者名"
+            />
+        <TextView
+            android:id="@+id/details_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/details_touxiang"
+            android:layout_below="@id/details_author"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="3dp"
+            android:text="视频简介"
+            />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

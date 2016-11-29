@@ -3,7 +3,10 @@ package com.example.administrator.quanmingzhibo.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.administrator.quanmingzhibo.R;
 import com.example.administrator.quanmingzhibo.adapter.OtherAdapter;
 import com.example.administrator.quanmingzhibo.bean.OtherBean;
+import com.example.administrator.quanmingzhibo.docation.DividerGridItemDecoration;
 import com.example.administrator.quanmingzhibo.uri.Url;
 import com.example.administrator.quanmingzhibo.widget.PullToRefreshRecyclerView;
 import com.google.gson.Gson;
@@ -51,12 +55,19 @@ public class OtherFragment extends Fragment {
 
         adapter = new OtherAdapter(getActivity(),listData);
         mRecyclerView.setAdapter(adapter);
-
+        //分割线
+        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
+        //布局管理器
+        GridLayoutManager manager = new GridLayoutManager(getActivity(),2);
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(manager);
         return  view;
     }
 
     private void initData() {
         RequestParams params = new RequestParams(Url.needurl(name));
+
+        Log.e("info","--------------------------"+params);
         x.http().get(params, new Callback.CommonCallback<String>() {
 
             @Override

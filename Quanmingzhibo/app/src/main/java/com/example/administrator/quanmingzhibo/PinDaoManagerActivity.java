@@ -34,7 +34,7 @@ public class PinDaoManagerActivity extends AppCompatActivity {
         changyong = (GridView)findViewById(R.id.changyongpindao);
         qita = (GridView)findViewById(R.id.qitapindao);
         //设置返回按钮
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+     //   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         changyonglist = new ArrayList<String>();
         qitalist = new ArrayList<String>();
@@ -46,7 +46,6 @@ public class PinDaoManagerActivity extends AppCompatActivity {
 
         qitaAdapter = new QiTaAdapter(qitalist,PinDaoManagerActivity.this);
         qita.setAdapter(qitaAdapter);
-
 
     }
 

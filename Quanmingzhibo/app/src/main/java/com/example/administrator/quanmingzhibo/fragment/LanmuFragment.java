@@ -40,7 +40,7 @@ public class LanmuFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycleView);
         imageView = (ImageView) view.findViewById(R.id.lanmu_sousuo);
         //数据
-        new PublicHttp(new LanmuCallBack() {
+        new PublicHttp(getActivity(),new LanmuCallBack() {
             @Override
             public void getData(byte[] bytes) {
                 String news = new String(bytes);

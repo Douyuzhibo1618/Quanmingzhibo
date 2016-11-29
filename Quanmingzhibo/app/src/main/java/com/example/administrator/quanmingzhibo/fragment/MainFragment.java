@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.administrator.quanmingzhibo.PinDaoManagerActivity;
 import com.example.administrator.quanmingzhibo.R;
 import com.example.administrator.quanmingzhibo.adapter.MainViewPagerAdapter;
+import com.example.administrator.quanmingzhibo.adapter.MyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,8 @@ public class MainFragment extends Fragment {
     private List<Fragment> fragments;
     private List<String> title;
     private List<String> realtitle;
+    private MyAdapter adapter;
+    private View view;
 
 
     public MainFragment() {
@@ -40,22 +43,16 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        //控件
-        tabLayout = ((TabLayout) view.findViewById(R.id.tablayout));
+        view = inflater.inflate(R.layout.fragment_main, container, false);
+//        //控件
+       tabLayout = ((TabLayout) view.findViewById(R.id.tablayout));
         viewpager = ((ViewPager) view.findViewById(R.id.viewpager));
-        more = ((Button)view.findViewById(R.id.more));
-        //
-        fragments = new ArrayList<Fragment>();
-        title = new ArrayList<String>();
-        realtitle = new ArrayList<>();
+       more = ((Button)view.findViewById(R.id.more));
+
         //初始化数据
         initData();
-        viewpager.setAdapter(new MainViewPagerAdapter(getChildFragmentManager(),fragments,title));
-        //tabLayout与Viewpager关联
-        tabLayout.setupWithViewPager(viewpager);
-
-        //按钮的点击事件
+//
+//        //按钮的点击事件
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,35 +60,46 @@ public class MainFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+
         return view;
     }
 
     private void initData() {
+        fragments = new ArrayList<>();
+        title = new ArrayList<>();
+        realtitle = new ArrayList<>();
+
+
         title.add("推荐");
-        title.add("全部");
-        title.add("英雄联盟");
-        title.add("全民星秀");
-        title.add("炉石传说");
-        title.add("守望先锋");
-        title.add("二次元区");
+        title.add("颜值控");
+        title.add(0,"英雄联盟");
+        title.add(1,"全民星秀");
+        title.add(2,"炉石传说");
+        title.add(3,"守望先锋");
+        title.add(4,"二次元区");
 
-        realtitle.add("all");
-        realtitle.add("lol");
-        realtitle.add("beauty");
-        realtitle.add("heartstone");
-        realtitle.add("overwatch");
-        realtitle.add("erciyuan");
+        realtitle.add(0,"lol");
+        realtitle.add(1,"beauty");
+        realtitle.add(2,"heartstone");
+        realtitle.add(3,"overwatch");
+        realtitle.add(4,"erciyuan");
 
-        fragments.add(new TuiJianFragment());
+        for (int i = 0; i < title.size(); i++) {
+            tabLayout.addTab(tabLayout.newTab().setText(title.get(i)));
+        }
+
+        fragments.add(new TuiJian2Fragment());
         fragments.add(new YanZhiKongFragment());
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             OtherFragment otherFragment = new OtherFragment();
             Bundle bundle = new Bundle();
             bundle.putString("name",realtitle.get(i));
             otherFragment.setArguments(bundle);
             fragments.add(otherFragment);
-
         }
+        viewpager.setAdapter(new MainViewPagerAdapter(getActivity().getSupportFragmentManager(),fragments,title));
+        //tabLayout与Viewpager关联
+        tabLayout.setupWithViewPager(viewpager);
     }
 
 }

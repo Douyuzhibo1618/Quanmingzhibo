@@ -43,8 +43,8 @@ public class Url {
 //    //守望先锋
 //    public static String Shouwang = "http://www.quanmin.tv/json/categories/overwatch/list.json?11211848&v=2.2.4&os=1&ver=4";
 //
-//    //颜值控
-//    public static String Yanzhi = "http://www.quanmin.tv/json/categories/love/list.json?11211841&v=2.2.4&os=1&ver=4";
+    //颜值控
+    public static String Yanzhi = "http://www.quanmin.tv/json/categories/love/list.json?11211841&v=2.2.4&os=1&ver=4";
 //
 //    //王者荣耀
 //    public static String Wangzhe = "http://www.quanmin.tv/json/categories/wangzhe/list.json?11211850&v=2.2.4&os=1&ver=4";
@@ -116,4 +116,5 @@ public class Url {
         return "http://www.quanmin.tv/json/rooms/"+number+"/info1.json?11212104&v=2.2.4&os=1&ver=4";
     }
 
+   // http://www.quanmin.tv/json/rooms/1868601/info1.json?11212104&v=2.2.4&os=1&ver=4
 }

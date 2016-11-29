@@ -27,8 +27,6 @@ public class YanZhiKongAdapter extends BaseAdapter {
         this.data = data;
     }
 
-
-
     public void setData(List<YanZhiKong.DataBean> data){
         this.data = data;
         notifyDataSetChanged();
@@ -55,8 +53,8 @@ public class YanZhiKongAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.yanzhikongitem,parent,false);
             holder = new ViewHolder();
-            holder.image = (ImageView)convertView.findViewById(R.id.image);
-            holder.title = (TextView)convertView.findViewById(R.id.title);
+            holder.image = (ImageView)convertView.findViewById(R.id.imagef);
+            holder.title = (TextView)convertView.findViewById(R.id.textf);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder)convertView.getTag();
@@ -65,7 +63,10 @@ public class YanZhiKongAdapter extends BaseAdapter {
         //控件赋值
         YanZhiKong.DataBean bean = data.get(position);
         String imageurl = bean.getThumb();
-        Picasso.with(context).load(imageurl).placeholder(R.mipmap.img_top_loading_jj12).into(holder.image);
+        if (imageurl != null&&imageurl.length()>0) {
+            Picasso.with(context).load(imageurl).placeholder(R.mipmap.img_top_loading_jj12).into(holder.image);
+        }
+
         holder.title.setText(bean.getTitle());
 
         return convertView;

@@ -1,8 +1,8 @@
 package com.example.administrator.quanmingzhibo;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 

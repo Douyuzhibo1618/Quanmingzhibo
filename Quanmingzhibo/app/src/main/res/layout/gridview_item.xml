@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/image_gv"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        />
+    <com.example.administrator.quanmingzhibo.widget.CircleImageView
+        android:id="@+id/image_gvc"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/image_gv"
+        android:src="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/image_gvc"
+        android:layout_alignTop="@id/image_gvc"
+        android:text="ccc"
+        />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/image_gvc"
+        android:layout_alignBottom="@id/image_gvc"
+        android:text="DDD"
+        />
+
+</RelativeLayout>

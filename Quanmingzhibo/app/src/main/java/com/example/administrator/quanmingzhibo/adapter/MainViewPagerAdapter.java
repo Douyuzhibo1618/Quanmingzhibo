@@ -14,15 +14,12 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> data;
     private List<String> title;
 
-    public MainViewPagerAdapter(FragmentManager fm, List<Fragment> data, List<String> title) {
+    public MainViewPagerAdapter(FragmentManager fm, List<Fragment> data,List<String> title) {
         super(fm);
         this.data = data;
         this.title = title;
     }
 
-    public MainViewPagerAdapter(FragmentManager fm) {
-        super(fm);
-    }
 
     @Override
     public Fragment getItem(int position) {

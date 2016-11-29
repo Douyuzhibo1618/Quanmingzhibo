@@ -1,5 +1,7 @@
 package com.example.administrator.quanmingzhibo.http;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -18,9 +20,20 @@ import java.net.URL;
 public class PublicHttp extends AsyncTask<String,Void,byte[]> {
 
     private LanmuCallBack callBack;
-    public PublicHttp(LanmuCallBack callBack){
+    private Context context;
+    public PublicHttp(Context context,LanmuCallBack callBack){
+        this.context = context;
         this.callBack = callBack;
     }
+    private ProgressDialog pd;
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        pd = new ProgressDialog(context);
+        pd.setMessage("正在请求网络，请稍后...");
+    }
+
     @Override
     protected byte[] doInBackground(String... params) {
         ByteArrayOutputStream baos = null;

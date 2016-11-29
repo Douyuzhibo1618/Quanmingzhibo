@@ -40,7 +40,7 @@ public class ZhiBoFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.zhibo_recycleView);
         toolbar = (Toolbar) view.findViewById(R.id.zhibo_toolbar);
 
-        new PublicHttp(new LanmuCallBack() {
+        new PublicHttp(getActivity(),new LanmuCallBack() {
             @Override
             public void getData(byte[] bytes) {
                 String jsonStr = new String(bytes);

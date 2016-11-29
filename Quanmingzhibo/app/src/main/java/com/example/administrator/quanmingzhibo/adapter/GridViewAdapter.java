@@ -20,13 +20,18 @@ import java.util.List;
  */
 public class GridViewAdapter  extends BaseAdapter{
 
+
     private Context context;
     private List<TuiJianBean.RoomBean.ListBean> data;
+
 
     public GridViewAdapter(Context context, List<TuiJianBean.RoomBean.ListBean> data) {
         this.context = context;
         this.data = data;
+
+
     }
+
 
     @Override
     public int getCount() {
@@ -45,33 +50,36 @@ public class GridViewAdapter  extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
-        if(convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.gridviewitem,parent,false);
-            holder = new ViewHolder();
-            holder.image = (ImageView)convertView.findViewById(R.id.image);
-            holder.touxiang = (CircleImageView)convertView.findViewById(R.id.touxiang);
-            holder.author = (TextView)convertView.findViewById(R.id.author);
-            holder.summary = (TextView)convertView.findViewById(R.id.summary);
-            convertView.setTag(holder);
+        ViewHolder holder1 = null;
+        if(convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.gridview_item, parent, false);
+                holder1 = new ViewHolder();
+                holder1.image = (ImageView) convertView.findViewById(R.id.image_gv);
+                holder1.touxiang = (CircleImageView) convertView.findViewById(R.id.image_gvc);
+                holder1.author = (TextView) convertView.findViewById(R.id.text1);
+                holder1.summary = (TextView) convertView.findViewById(R.id.text2);
+                convertView.setTag(holder1);
+
         }else{
-            holder = (ViewHolder) convertView.getTag();
+                holder1 = (ViewHolder)convertView.getTag();
         }
-        //赋值
-        TuiJianBean.RoomBean.ListBean  bean=  data.get(position);
-        String imageurl = bean.getThumb();
-        Picasso.with(context).load(imageurl).placeholder(R.mipmap.img_top_loading_jj12).into(holder.image);
-        String touxiangurl = bean.getAvatar();
-        Picasso.with(context).load(imageurl).placeholder(R.mipmap.img_top_loading_jj12).into(holder.touxiang);
-        holder.author.setText(bean.getNick());
-        holder.summary.setText(bean.getTitle());
-        return convertView;
+
+
+            TuiJianBean.RoomBean.ListBean  bean=  data.get(position);
+            String imageurl = bean.getThumb();
+            Picasso.with(context).load(imageurl).placeholder(R.mipmap.img_top_loading_jj12).into(holder1.image);
+            String touxiangurl = bean.getAvatar();
+            Picasso.with(context).load(touxiangurl).placeholder(R.mipmap.img_top_loading_jj12).error(R.mipmap.img_top_loading_jj12).into(holder1.touxiang);
+            holder1.author.setText(bean.getNick());
+            holder1.summary.setText(bean.getTitle());
+
+        return  convertView;
     }
 
     class ViewHolder{
         ImageView image;
         CircleImageView touxiang;
         TextView author,summary;
-
     }
+
 }

@@ -35,7 +35,7 @@ public class SecondActivity extends AppCompatActivity {
         //获得地址
         String path = Url.getLanmuPath(slug);
         //数据
-        new PublicHttp(new LanmuCallBack() {
+        new PublicHttp(SecondActivity.this,new LanmuCallBack() {
             @Override
             public void getData(byte[] bytes) {
                 //数据
